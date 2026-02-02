@@ -1,0 +1,23 @@
+-- PROFIT CALCULATION FIX INSTRUCTIONS
+-- ======================================
+-- The system now correctly calculates profit using:
+-- Profit = (Selling Price - Cost Price) × Quantity
+--
+-- Cost Price Priority:
+-- 1. If product has 'cost_price' field set, it will use that
+-- 2. If not, it will use 'original_price' field as the cost price
+-- 3. If neither exists, it assumes 40% profit margin
+--
+-- EXAMPLE:
+-- Product: DVR
+-- - Original Price (Cost): Rs 15,000
+-- - Price (Selling): Rs 20,000
+-- - Quantity: 1
+-- - Calculated Profit: Rs 5,000 (20,000 - 15,000)
+--
+-- NOTE: When adding products in Admin Panel:
+-- - "Original Price" field = Your COST PRICE (what you paid for the product)
+-- - "Price" field = Your SELLING PRICE (what customer pays)
+--
+-- No database changes needed - the backend code now automatically
+-- uses original_price as cost price if cost_price is not set.
